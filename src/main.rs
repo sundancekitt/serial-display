@@ -110,9 +110,9 @@ fn main() -> std::io::Result<()> {
             .service(web::resource("/ws/").route(web::get().to(ws_index)))
             .service(fs::Files::new("/", "static/").index_file("index.html"))
     })
-        .bind("127.0.0.1:8080")?
+        .bind("0.0.0.0:8080")?
         .start();
 
-    info!("Started http server: 127.0.0.1:8080");
+    info!("Started http server: 0.0.0.0:8080");
     sys.run()
 }
